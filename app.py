@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, jsonify, send_file
 from flask_cors import CORS
 import subprocess
 
@@ -22,7 +22,6 @@ def get_report():
     output_file_html = latex_file.replace('.tex', '.html')
 
     try:
-        # Generate HTML from LaTeX
         subprocess.run(['pandoc', latex_file, '-o',
                         output_file_html, '--mathml', '--standalone'], check=True)
 
