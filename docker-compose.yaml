@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  latex_to_html_service:
+    build: .
+    ports:
+      - "4003:4003"

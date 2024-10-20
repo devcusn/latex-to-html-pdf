@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Report</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <embed id="embde_pdf" type="application/pdf" width="600" height="500" />
+    </div>
+
+    <script>
+        async function loadReport() {
+            try {
+                const response = await fetch('http://localhost:4003/api/v1/get-pdf'); 
+                if (response.ok) {
+                    const blob = await response.blob(); 
+                    const url = URL.createObjectURL(blob); 
+                    document.getElementById('embde_pdf').src = url; 
+                } else {
+                    console.error('Failed to load report:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        window.onload = loadReport;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+* {
+  pad: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+#embde_pdf {
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+#report_frame {
+  width: 900px;
+  height: 100%;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
